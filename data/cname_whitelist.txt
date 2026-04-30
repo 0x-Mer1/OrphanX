@@ -1,0 +1,52 @@
+# AWS
+elasticbeanstalk.com
+s3.amazonaws.com
+
+# Microsoft Azure
+cloudapp.net
+cloudapp.azure.com
+azurewebsites.net
+blob.core.windows.net
+azure-api.net
+azurehdinsight.net
+azureedge.net
+azurecontainer.io
+database.windows.net
+azuredatalakestore.net
+search.windows.net
+azurecr.io
+redis.cache.windows.net
+servicebus.windows.net
+visualstudio.com
+
+# Developer Platforms
+bitbucket.io
+animaapp.io
+trydiscourse.com
+ghost.io
+ngrok.io
+
+# CMS / Blogging
+wordpress.com
+hatenablog.com
+readme.io
+
+# Support / Docs
+helpjuice.com
+helpscoutdocs.com
+helprace.com
+
+# Marketing / CRM
+agilecrm.com
+launchrock.com
+read.uberflip.com
+surveysparrow.com
+furyns.com
+
+# Other
+airee.ru
+worksites.net
+s.strikinglydns.com
+na-west1.surge.sh
+stats.uptimerobot.com
+youtrack.cloud

@@ -1,0 +1,30 @@
+# Trusted DNS resolvers for reconnaissance
+# One resolver per line, comment with #
+
+# Google
+8.8.8.8
+8.8.4.4
+
+# Cloudflare
+1.1.1.1
+1.0.0.1
+
+# Quad9
+9.9.9.9
+149.112.112.112
+
+# OpenDNS (Cisco)
+208.67.222.222
+208.67.220.220
+
+# Google Secondary
+2001:4860:4860::8888
+2001:4860:4860::8844
+
+# Cloudflare Secondary
+2606:4700:4700::1111
+2606:4700:4700::1001
+
+# Quad9 Secondary
+2620:fe::fe
+2620:fe::9
