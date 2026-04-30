@@ -1,0 +1,62 @@
+Tools and Flags Reference
+=========================
+
+## Stage 1: Discovery
+| Tool       | Flags                                              | Purpose                |
+|------------|----------------------------------------------------|------------------------|
+| subfinder  | `-silent -passive -d <domain>`                     | Passive enumeration    |
+| assetfinder| `<domain>` (positional)                           | Passive enumeration    |
+| amass      | `enum -passive -dir <workdir> -d <domain>`        | Passive enum, needs work dir |
+| anew       | `<output_file>` (stdin)                           | Deduplicated append    |
+
+## Stage 2: DNS Resolution
+| Tool  | Flags                                      | Purpose                        |
+|-------|--------------------------------------------|--------------------------------|
+| dnsx  | `-silent -retry 3 -a -aaaa -cname` (stdin)| Resolve A/AAAA/CNAME records   |
+| anew  | `<output_file>` (stdin)                   | Deduplicated append            |
+
+## Stage 3: CNAME Filtering
+| Tool  | Flags             | Purpose                    |
+|-------|-------------------|----------------------------|
+| grep  | Pattern matching  | Filter cloud CNAMEs        |
+| anew  | Append logic      | Append-only to watchlist    |
+
+## Stage 4: NXDOMAIN Gate
+| Tool    | Flags                   | Purpose                        |
+|---------|-------------------------|--------------------------------|
+| nslookup| `<target> <resolver>`   | Detect NXDOMAIN on CNAME targets|
+
+## Stage 5: HTTP Probing
+| Tool  | Flags                                                                                     | Purpose                         |
+|-------|-------------------------------------------------------------------------------------------|---------------------------------|
+| httpx | `-silent -status-code -content-length -follow-redirects -title -tech-detect -probe -json` (stdin) | HTTP probing with takeover detection |
+
+## Stage 6: Nuclei Takeover Confirmation
+| Tool    | Flags                                                                | Purpose                      |
+|---------|----------------------------------------------------------------------|------------------------------|
+| nuclei  | `-update-templates -ud <templates_dir>`                              | Update takeover templates     |
+| nuclei  | `-silent -json -rate-limit 150 -retries 2 -timeout 300 -output <file> -templates takeover/` (stdin) | Scan with takeover templates |
+
+## Stage 7: Evidence Collection
+| Tool      | Flags                                                                          | Purpose                      |
+|-----------|--------------------------------------------------------------------------------|------------------------------|
+| dig       | `@8.8.8.8 +short +noall +answer <domain> <record_type>`                       | DNS record collection       |
+| gowitness | `scan single -u <url> -o <dir> --full-page`                                    | Screenshot capture           |
+| gowitness | `export screenshot -u <url> -o <file>`                                          | Export screenshot           |
+
+
+Tool Paths (Absolute)
+=====================
+/home/azureuser/go/bin/subfinder
+/home/azureuser/go/bin/assetfinder
+/usr/local/bin/amass
+/home/azureuser/go/bin/anew
+/home/azureuser/go/bin/dnsx
+/home/azureuser/go/bin/httpx
+/home/azureuser/go/bin/nuclei
+/home/azureuser/go/bin/gowitness
+
+dig    (system)
+/nslookup (system)
+
+Nuclei Templates: ~/.local/nuclei-templates/
