@@ -1,6 +1,6 @@
 # OrphanX
 # Recon Bot
-
+# ⚠️ Work in progress — not fully tested yet. Contributions welcome.
 Automated subdomain takeover discovery pipeline triggered via Telegram. Send a domain and receive a full forensic report with evidence of potential subdomain takeovers.
 
 ## Features
